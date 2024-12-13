@@ -1,0 +1,7 @@
+<main>
+    <section [class]="goalsWeek.length == 0 ? 'semMetas' : 'comMetas'">
+        <semMetasComponent (cadastro)="abrirAside('cadastro', null)" [cadastroAberto]="asideAberto" *ngIf="goalsWeek.length == 0"/>
+        <comMetasComponent *ngIf="goalsWeek.length > 0" (cadastro)="abrirAside('cadastro', null)" [goalsWeek]="goalsWeek" [goalsCompletedWeek]="goalsCompletedWeek" [diaInicio]="inicio" [diaFim]="fim" [mes]="mes" (meta)="abrirAside('meta', $event)" [goalsProgressWeek]="goalsProgressWeek" [goalsProgressWeekLiq]="goalsProgressWeekLiq"/>
+        <asideComponent (cancelar)="asideAberto = false" *ngIf="asideAberto" [variant]="statusAside" [goalOpened]="metaEscolhida" (post)="reload()"/>
+    </section>
+</main>

@@ -1,0 +1,70 @@
+.conteudo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.header div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+.header div div img{
+    cursor: pointer;
+}
+.header div div img:hover{
+    transform: scale(1.2);
+}
+
+.progressBar{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.progressBar div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+span{
+    color: var(--corFonte);
+    
+    &.line{
+        height: 1px;
+        background-color: var(--cinza);
+    }
+}
+
+.goals{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.historico{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.historico div{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.historico p{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}

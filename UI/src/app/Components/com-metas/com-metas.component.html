@@ -1,0 +1,38 @@
+<div class="conteudo">
+    <div class="header">
+        <div>
+            <img src="logoMenor.svg" alt="">
+            <div>
+                <!-- <img src="antes.svg" alt="" (click)="verificarData('antes')"> implementação n mt boa -->
+                <h1>{{diaInicio}} a {{diaFim}} de {{mes}}</h1>
+                <!-- <img src="depois.svg" alt="" (click)="verificarData('depois')"> implementação n mt boa -->
+            </div>
+        </div>
+        <buttonsComponent text="Cadastrar meta" variant="cadastro" (click)="iniciarCadastro()"/>
+    </div>
+    <div class="progressBar">
+        <progressBarComponent [progresso]="(this.goalsCompletedWeek.length / this.goalsWeek.length) * 100" />
+        <div>
+            <p>Você completou <strong>{{goalsCompletedWeek.length}}</strong> de <strong>{{goalsWeek.length}}</strong> metas nessa semana.</p>
+            <span>{{getCompletionPercentage()}}%</span>
+        </div>
+    </div>
+    <span class="line"></span>
+    <div class="goals">
+        <div *ngFor="let goal of goalsWeek">
+            <buttonsComponent text="{{goal.title}}" variant="meta" [metaFeita]="isMetaFeita(goal.id)" (click)="abrirMeta(goal)"/>
+        </div>
+    </div>
+    <div class="historico">
+        <h1>Sua semana</h1>
+        <p *ngIf="goalsProgressWeek.length == 0">Você ainda não completou nenhuma meta essa semana.</p>
+        <div *ngFor="let date of (goalsProgressWeekLiq | keyvalue)">
+        <h2>{{ date.key }}</h2>
+        <div *ngFor="let atv of date.value">
+            <p>
+            <img src="radioSelect.svg" alt=""> Você completou “<strong>{{atv.goal.title}}</strong>” às {{ formatarHora(atv.createdAt.toString()) }}.
+            </p>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<input [class]="variant" *ngIf="variant == 'text' || variant == 'visual'" type="{{variant}}" placeholder="{{placeholder}}" [(ngModel)]="informacao" (change)="mandarInfo()" [disabled]="variant == 'visual'">
+
+<div *ngIf="variant == 'radio'" class="diasSemana">
+    <div *ngFor="let option of options">
+        <input type="radio" id="{{option.value}}" name="diasSemana" value="{{option.value}}" [(ngModel)]="informacao" (change)="mandarInfo()"/>
+        <label for="{{option.value}}"><img src="" alt=""> {{ option.opc }} <span>{{ option.emoji }}</span></label>
+    </div>
+</div>

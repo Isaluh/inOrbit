@@ -1,0 +1,1 @@
+<button [class]="variant" [disabled]="metaFeita" [ngStyle]="{'opacity': metaFeita ? '0.5' : '1'}"><img [src]="variant == 'cadastro' ? 'criar.svg' : 'metas.svg'" alt="" *ngIf="variant == 'cadastro' || variant == 'meta'">{{text}}</button>

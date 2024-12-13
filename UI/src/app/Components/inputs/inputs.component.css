@@ -1,0 +1,75 @@
+input {
+    width: 100%;
+    height: 48px;
+    background-color: black;
+    border: 1px solid var(--cinza);
+    padding: 0 16px;
+    border-radius: 8px;
+    outline: none;
+    color: var(--corFonte);
+
+    &[type='radio'] {
+        display: none;
+    }
+
+    &:focus{
+        border-color: var(--borderSelect);
+    }
+
+    &.visual::placeholder{
+        color: var(--borderSelect);
+    }
+}
+
+label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--corFonteSecundaria);
+    width: 100%;
+    height: 48px;
+    background-color: black;
+    border: 1px solid var(--cinza);
+    padding: 0 16px;
+    border-radius: 8px;
+    position: relative;
+    background-image: url('/radio.svg');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+
+    &::after {
+        content: '';
+        width: 20px; 
+        height: 20px;
+        border-radius: 50%;
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: background-color 0.3s, border-color 0.3s;
+        background-image: url('/radio.svg');
+        background-size: cover;
+    }
+
+    input:checked + &{
+        border-color: var(--borderSelect);
+        background-color: var(--backgroundSelect);
+    }
+
+    input:checked + &::after {
+        background-image: url('/radioSelect.svg');
+    }
+
+    &:hover{
+        border-color: var(--backgroundSelect);
+        background-color: var(--backgroundSelect);
+    }
+}
+
+.diasSemana {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

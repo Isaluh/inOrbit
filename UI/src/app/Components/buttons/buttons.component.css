@@ -1,0 +1,46 @@
+button{
+    min-height: 39px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+
+    cursor: pointer;
+    color: var(--corFonte);
+
+    &.cadastro, &.salvar{
+        background-color: var(--botao);
+    }
+    &.cadastro:hover, &.salvar:hover{
+        background-color: var(--botaoHover);
+    }
+    &.cadastro:focus, &.salvar:focus{
+        /* tirar o hover do disabled */
+        background-color: var(--botao);
+        box-shadow: 0 0 0 2px var(--fundo), 0 0 1px 5px var(--botao);
+    }
+    
+    &.cancelar{
+        background-color: var(--cinza);
+    }
+
+    &.salvar, &.cancelar{
+        min-width: 154px;
+    }
+
+    &.meta{
+        background-color: var(--fundo);
+        border-radius: 58px;
+        border: 1px dashed var(--corDashed);
+    }
+    &.meta:hover, &.meta:focus{
+        box-shadow: 0px 0px 9px var(--borderSelect);
+        border-color: var(--borderSelect);
+    }
+}

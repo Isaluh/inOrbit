@@ -1,0 +1,21 @@
+main{
+    background-color: var(--fundo);
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+}
+
+section{
+    width: 100%;
+    
+    &.semMetas{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &.comMetas{
+        width: 45%;
+        padding: 40px 0;
+    }
+}

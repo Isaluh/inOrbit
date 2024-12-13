@@ -1,0 +1,40 @@
+<span></span>
+<aside>
+    <div *ngIf="variant == 'cadastro'">
+        <div>
+            <h1>Cadastrar meta</h1>
+            <p>Adicione atividades que <u>te fazem bem</u> e que você quer continuar praticando toda semana.</p>
+        </div>
+        <div>
+            <h2>Qual a atividade?</h2>
+            <inputsComponent variant="text" placeholder="Praticar exercícios, meditar, etc..." (infoCadastro)="infosCadastro.title = $event" />
+        </div>
+        <div>
+            <h2>Quantas vezes na semana?</h2>
+            <inputsComponent variant="radio" [options]="[{ opc: '1x na semana', emoji: '🥱', value : 1 }, { opc: '2x na semana', emoji: '🙂', value : 2 }, { opc: '3x na semana', emoji: '😎', value : 3 }, { opc: '4x na semana', emoji: '😜', value : 4 }, { opc: '5x na semana', emoji: '🤨', value : 5 }, { opc: '6x na semana', emoji: '🤯', value : 6 }, { opc: 'Todos os dias da semana', emoji: '🔥', value : 7 }]" (infoCadastro)="infosCadastro.desiredWeeklyFrequency = $event" />
+        </div>
+    </div>
+
+    <div *ngIf="variant == 'meta'">
+        <div>
+            <h1>Atividade</h1>
+            <inputsComponent variant="visual" placeholder="{{goalOpened.title}}"/>
+        </div>
+        <div>
+            <h2>Quantidade de vezes designada na semana</h2>
+            <inputsComponent variant="visual" placeholder="{{goalOpened.desiredWeeklyFrequency}}"/>
+        </div>
+        <div>
+            <h2>Quantidade de vezes feita na semana</h2>
+            <inputsComponent variant="visual" placeholder="{{goalOpened.currentWeeklyFrequency}}"/>
+        </div>
+        <div>
+            <h2>Concluir essa tarefa hoje?</h2>
+        </div>
+    </div>
+
+    <div>
+        <buttonsComponent text="Fechar" variant="cancelar" (click)="fecharCadastro()"/>
+        <buttonsComponent [text]="variant == 'cadastro' ? 'Salvar' : 'Concluir'" variant="salvar" (click)="variant == 'cadastro' ? criarGoal() : concluirGoal(goalOpened.id)"/>
+    </div>
+</aside>

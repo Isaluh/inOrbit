@@ -1,0 +1,13 @@
+.progress-container {
+    width: 100%;
+    background-color: var(--cinza);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 8px;
+    background: linear-gradient(90deg, var(--rosaGradient) 0%, var(--botao) 100%);
+    border-radius: 10px;
+    transition: width 0.5s;
+}

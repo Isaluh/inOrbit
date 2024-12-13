@@ -1,0 +1,15 @@
+div{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+
+    &.cadastro{
+        gap: 20px;
+    }
+}
+
+p{
+    width: 55%;
+    text-align: center;
+}
